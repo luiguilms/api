@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from sistema.models import Planta, Humedad,Usuario,Temperatura
+from sistema.models import Planta, Humedad,Usuario
 
 class HumedadSerializer(serializers.ModelSerializer):
     class Meta:
@@ -7,22 +7,17 @@ class HumedadSerializer(serializers.ModelSerializer):
         fields = ['dato', 'pub_date']
 
 class PlantaSerializer(serializers.ModelSerializer):
-    humedad = serializers.PrimaryKeyRelatedField(queryset=Humedad.objects.all())
-    temperatura = serializers.PrimaryKeyRelatedField(queryset=Temperatura.objects.all())
 
     class Meta:
         model = Planta
-        fields = ['id', 'humedad','temperatura', 'nombre', 'pub_date']
+        fields = '__all__'
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['usuario', 'contraseña']
+        fields = ['usuario', 'clave']
 
-class TemperaturaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Temperatura
-        fields = ['valor']
+
 
 
 

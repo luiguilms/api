@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import generics, viewsets
-from sistema.models import Humedad, Planta,Usuario,Temperatura
-from .serializers import HumedadSerializer, PlantaSerializer,TemperaturaSerializer,UsuarioSerializer
+from sistema.models import Humedad, Planta,Usuario
+from .serializers import HumedadSerializer, PlantaSerializer,UsuarioSerializer
 
 class IndexView(APIView):
     def get(self, request):
@@ -42,20 +42,7 @@ class PlantaViewSet(viewsets.ModelViewSet):
     queryset = Planta.objects.all()
     serializer_class = PlantaSerializer
 
-class TemperaturaView(generics.ListCreateAPIView):
-    queryset = Temperatura.objects.all()
-    serializer_class = TemperaturaSerializer
 
-
-class TemperaturaDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Temperatura.objects.all()
-    lookup_url_kwarg = 'temperatura_id'
-    serializer_class = TemperaturaSerializer
-
-
-class TemperaturaViewSet(viewsets.ModelViewSet):
-    queryset = Temperatura.objects.all()
-    serializer_class = TemperaturaSerializer
 
 class UsuarioView(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
