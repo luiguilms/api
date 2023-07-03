@@ -20,7 +20,7 @@ class Planta(models.Model):
     nombre = models.CharField(max_length=200)
     pub_date = models.DateTimeField('fecha de publicacion',auto_now_add=True)
     descripcion = models.TextField(blank=True)
-    imagen = models.ImageField(upload_to='planta/', blank=True)
+    imagen=models.CharField(max_length=1000)
     
     
     def __str__(self):

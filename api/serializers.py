@@ -4,7 +4,7 @@ from sistema.models import Planta, Humedad,Usuario
 class HumedadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Humedad
-        fields = ['dato', 'pub_date']
+        fields = '__all__'
 
 class PlantaSerializer(serializers.ModelSerializer):
 
@@ -15,7 +15,7 @@ class PlantaSerializer(serializers.ModelSerializer):
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['usuario', 'clave']
+        fields = '__all__'
 
 
 
